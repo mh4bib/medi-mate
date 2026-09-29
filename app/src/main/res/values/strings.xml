@@ -19,8 +19,6 @@
     <string name="perm_title">ফুল-স্ক্রিনে দেখানোর অনুমতি</string>
     <string name="perm_body">ফোন আনলক করলেই রিমাইন্ডার পেজ নিজে থেকে দেখাতে ‘অন্য অ্যাপের উপরে দেখান’ অনুমতিটি চালু করুন।</string>
     <string name="perm_button">অনুমতি দিন</string>
-    <string name="test_button">১০ সেকেন্ড পরে পরীক্ষা করুন</string>
-    <string name="test_started">১০ সেকেন্ড পরে বাজবে। এখন ফোন লক করে দেখুন।</string>
 
     <!-- Reminder screen / notification -->
     <string name="reminder_title">ঔষধ লাগানোর সময়</string>

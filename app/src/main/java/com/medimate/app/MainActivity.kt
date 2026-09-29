@@ -56,10 +56,6 @@ class MainActivity : Activity() {
                 Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
             )
         }
-        findViewById<TextView>(R.id.btnTest).setOnClickListener {
-            Scheduler.fireIn(this, 10_000L)
-            Toast.makeText(this, R.string.test_started, Toast.LENGTH_LONG).show()
-        }
 
         renderPills()
         renderNext()

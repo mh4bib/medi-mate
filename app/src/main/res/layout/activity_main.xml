@@ -199,15 +199,5 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/btnTest"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:gravity="center"
-            android:text="@string/test_button"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
     </LinearLayout>
 </ScrollView>

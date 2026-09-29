@@ -20,7 +20,7 @@ object Scheduler {
         return t.toInstant().toEpochMilli()
     }
 
-    /** (Re)schedules tomorrow-or-later's alarm, or cancels it if disabled. */
+    /** (Re)schedules the next daily alarm, or cancels it if disabled. */
     fun schedule(ctx: Context) {
         val prefs = Prefs(ctx)
         val am = ctx.getSystemService(AlarmManager::class.java)
@@ -36,14 +36,16 @@ object Scheduler {
         )
     }
 
-    fun snooze(ctx: Context) {
+    /** One-off alarm N milliseconds from now (used for snooze and the test button). */
+    fun fireIn(ctx: Context, millis: Long) {
         val am = ctx.getSystemService(AlarmManager::class.java)
-        val trigger = System.currentTimeMillis() + SNOOZE_MINUTES * 60_000L
         am.setAlarmClock(
-            AlarmManager.AlarmClockInfo(trigger, showAppPending(ctx)),
+            AlarmManager.AlarmClockInfo(System.currentTimeMillis() + millis, showAppPending(ctx)),
             firePending(ctx, REQ_SNOOZE)
         )
     }
+
+    fun snooze(ctx: Context) = fireIn(ctx, SNOOZE_MINUTES * 60_000L)
 
     private fun firePending(ctx: Context, req: Int): PendingIntent =
         PendingIntent.getBroadcast(

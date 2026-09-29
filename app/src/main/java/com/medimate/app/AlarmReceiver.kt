@@ -6,7 +6,7 @@ import android.content.Intent
 
 class AlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        Notifier.showReminder(context)
-        Scheduler.schedule(context) // line up the next day's alarm
+        ReminderService.start(context)   // rings until the user responds
+        Scheduler.schedule(context)      // line up the next day's alarm
     }
 }

@@ -1,5 +1,6 @@
 package com.medimate.app
 
+import android.content.Context
 import java.util.Locale
 
 /** Bengali digits and Bengali-style time formatting. */
@@ -23,4 +24,8 @@ object Bn {
         val mm = String.format(Locale.ROOT, "%02d", minute)
         return "$period ${num("$h12:$mm")}"
     }
+
+    /** "বাম হাতে" / "ডান হাতে" */
+    fun handLoc(ctx: Context, left: Boolean): String =
+        ctx.getString(if (left) R.string.hand_left_loc else R.string.hand_right_loc)
 }

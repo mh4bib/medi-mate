@@ -2,10 +2,14 @@ package com.medimate.app
 
 import android.Manifest
 import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
+import android.view.View
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.TimePicker
@@ -21,6 +25,7 @@ class MainActivity : Activity() {
     private lateinit var pillLeft: TextView
     private lateinit var pillRight: TextView
     private lateinit var nextText: TextView
+    private lateinit var permCard: View
 
     private var left = true
 
@@ -34,6 +39,7 @@ class MainActivity : Activity() {
         pillLeft = findViewById(R.id.pillLeft)
         pillRight = findViewById(R.id.pillRight)
         nextText = findViewById(R.id.nextText)
+        permCard = findViewById(R.id.permCard)
 
         timePicker.setIs24HourView(false)
         timePicker.hour = prefs.hour
@@ -45,9 +51,24 @@ class MainActivity : Activity() {
         pillRight.setOnClickListener { left = false; renderPills() }
         findViewById<TextView>(R.id.btnSave).setOnClickListener { save() }
 
+        findViewById<TextView>(R.id.btnPerm).setOnClickListener {
+            startActivity(
+                Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
+            )
+        }
+        findViewById<TextView>(R.id.btnTest).setOnClickListener {
+            Scheduler.fireIn(this, 10_000L)
+            Toast.makeText(this, R.string.test_started, Toast.LENGTH_LONG).show()
+        }
+
         renderPills()
         renderNext()
         askNotificationPermission()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        permCard.visibility = if (Settings.canDrawOverlays(this)) View.GONE else View.VISIBLE
     }
 
     private fun save() {

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">মেডি-মেট</string>
+
+    <!-- Main screen -->
+    <string name="title_main">মলমের রিমাইন্ডার</string>
+    <string name="next_reminder">পরবর্তী রিমাইন্ডার: %1$s, %2$s · %3$s</string>
+    <string name="reminder_off">রিমাইন্ডার বন্ধ আছে</string>
+    <string name="today">আজ</string>
+    <string name="tomorrow">আগামীকাল</string>
+    <string name="reminder_time">রিমাইন্ডারের সময়</string>
+    <string name="which_hand">আজ কোন হাতে লাগাবেন?</string>
+    <string name="left_hand">বাম হাত</string>
+    <string name="right_hand">ডান হাত</string>
+    <string name="hint_alternate">এরপর প্রতিদিন হাত বদলে যাবে। আজ বাম হলে কাল ডান, পরশু আবার বাম।</string>
+    <string name="enable_reminder">রিমাইন্ডার চালু</string>
+    <string name="save">সংরক্ষণ করুন</string>
+    <string name="saved">সংরক্ষিত হয়েছে</string>
+
+    <!-- Reminder screen / notification -->
+    <string name="reminder_title">মলম লাগানোর সময়</string>
+    <string name="hand_left_loc">বাম হাতে</string>
+    <string name="hand_right_loc">ডান হাতে</string>
+    <string name="done">সম্পন্ন হয়েছে</string>
+    <string name="snooze">১০ মিনিট পরে মনে করান</string>
+    <string name="notif_title">মলম লাগানোর সময় হয়েছে</string>
+    <string name="notif_text">আজ %1$s মলম লাগান</string>
+    <string name="channel_name">মলমের রিমাইন্ডার</string>
+</resources>
